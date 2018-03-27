@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+  padding: 0 !important;
+  background-color: #F1F1F1;
+  color: #828282;
+}
+
+.App-logo {
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 32px;
+  float: left;
+  margin-right: 16px;
+}
+
+.App-header {
+  background-color: #AEB5BD;
+  height: auto;
+  padding: 32px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 64px;
+}
+
+.App-title {
+  font-size: 1.5em;
+  float: left;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.content {
+  width: 912px;
+  text-align: left;
+  
+}
+
+.content-title {
+  margin: 32px 0 32px 0;
+}
+
+.add-input {
+  background-color: #FAFAFA;
+  align-self: flex-start;
+}
+
+.add-name-block {
+  width: 270px;
+}
+
+.add-name-block input {
+  width: 100% !important;
+}
+
+.add-email-block {
+  width: 370px;
+}
+
+.add-email-block input {
+  width: 100% !important;
+}
+
+.add-phone-block {
+  width: 270px;
+}
+
+.add-phone-block input {
+  width: 100% !important;
+  
+}
+
+.thead-name {
+  width: 290px;
+  cursor: pointer;
+}
+
+.thead-email {
+  width: 390px;
+  cursor: pointer;
+}
+
+.thead-phone {
+  width: 220px;
+  cursor: pointer;
+}
+
+.row-container {
+  color: #505050;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  padding: 24px 24px 0 24px;
+  height: 72px;
+}
+
+.row-container td {
+  padding: 24px;
+}
+
+.cancel-btn {
+  background: #EDEDED !important;
+  color: #2C74FD !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.save-btn {
+  background: #2C74FD !important;
+  color: #ffffff !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  height: 40px;
+  margin-left: 8px;
+}
