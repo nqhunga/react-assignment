@@ -3,4 +3,4 @@ This is a website created by create-react-app. To deploy this website in local m
  . clone the repository by typing: git clone https://github.com/nqhunga/react-assignment.git
  . install missing dependencies: npm install
  . run the server for website: npm start
- . the website is available at http://localhost:3000/
+ . the website is available at http://localhost:3000/ 
