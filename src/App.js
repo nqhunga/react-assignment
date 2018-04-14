@@ -4,7 +4,7 @@ import './App.css';
 
 import orderBy from "lodash/orderBy";
 import { ContainerEx } from './App.style';
-import {getUsers} from './database/database';
+import getUsers from './database/database';
 import ListPeople from './components/ListPeople';
 import AddPeople from './components/AddPeople';
 
@@ -27,31 +27,8 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    let tempArray = [].concat(this.state.users);
-    await getUsers() 
-      .then(results => {
-        let userArray = results.results;
-        let tempUser = {};
-        let id = 0;
-        userArray.map(value => {
-          let firstName = value.name.first.charAt(0).toUpperCase()+value.name.first.slice(1);
-          let lastName = value.name.last.charAt(0).toUpperCase()+value.name.last.slice(1);
-          let name = `${firstName} ${lastName}`;
-          tempUser = {
-            id: id,
-            name: name,
-            email: value.email,
-            phone: value.phone
-          }
-          id += 1;
-
-          return tempArray.push(tempUser);
-          
-        });
-        this.setState({
-          users: tempArray
-        });
-      });
+    const users = await getUsers();
+    this.setState({users});
   }
 
   AddNew(newPeople) {
@@ -81,12 +58,12 @@ class App extends Component {
   }
 
   handleSort = columnName => {
-    let data=orderBy(
+    let data = orderBy(
       this.state.users,
       this.state.columnToSort,
       this.state.sortDirection
     );
-    
+
     this.setState(state => ({
       users: data,
       columnToSort: columnName,
@@ -106,28 +83,34 @@ class App extends Component {
         </header>
         <ContainerEx className="content">
           <h3 className="content-title">List of participants</h3>
-          <AddPeople 
+          <AddPeople
             newPeople={this.state.users}
             onSave={newPeople => this.AddNew(newPeople)}
           />
-          <ListPeople 
-            people={this.state.users} 
-            onDelete={thRow => this.onDelete(thRow)} 
+          <ListPeople
+            people={this.state.users}
+            onDelete={thRow => this.onDelete(thRow)}
             onSave={newValue => this.onSave(newValue)}
             columnToSort={this.state.columnToSort}
             sortDirection={this.state.sortDirection}
             handleSort={this.handleSort}
             header={[
-              {name: 'Name',
-              prop: 'name'},
-              {name: 'Email address',
-              prop: 'email'},
-              {name: 'Phone number',
-              prop: 'phone'}
+              {
+                name: 'Name',
+                prop: 'name'
+              },
+              {
+                name: 'Email address',
+                prop: 'email'
+              },
+              {
+                name: 'Phone number',
+                prop: 'phone'
+              }
             ]}
           />
         </ContainerEx>
-        
+
       </ContainerEx>
     );
   }
